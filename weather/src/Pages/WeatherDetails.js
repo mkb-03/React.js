@@ -1,25 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 const WeatherDetails = () => {
+    const {cityName} = useParams()
 
-    async function getWeather(){
-        try {
-            
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=lahore&appid=ba0fbe3ba356d819fc1351fe5ca089a2&units=metric`)
+    useEffect(() => {
+        const getWeatherData = async () => {
 
-            const data = await response.json()
-            console.log(data);
-            if(data)
-            {
+            try {
+
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=ba0fbe3ba356d819fc1351fe5ca089a2&units=metric`)
+
+                const data = await response.json()
+                console.log(data);
                 
+                if (data) {
+
+                }
+
+            } catch (error) {
+                console.log(error)
             }
 
-        } catch (error) {
-            console.log(error)
         }
-    }
+        getWeatherData();
 
-    getWeather();
+    }, [cityName])
+
+
 
     return (
         <div className="container text-center mt-5">
