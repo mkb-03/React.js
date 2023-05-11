@@ -14,7 +14,16 @@ const WeatherDetails = () => {
 
                 const data = await response.json()
                 console.log(data);
-                setWeatherData(data)
+                
+                // setWeatherData(data)
+
+                // if(data)
+                // {
+                //     const {
+                        
+                //     } = newData
+                // }
+
 
             } catch (error) {
                 console.log(error)
@@ -41,25 +50,25 @@ const WeatherDetails = () => {
 
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td >Temperature:  </td>
-                            <td></td>
-                            <td>Max Temperature</td>
+                    <tbody className='mt-5'>
+                        <tr >
+                            <td >Temperature:  °C </td>
+                            <td>Speed: </td>
+                            <td>Humidity: </td>
 
                         </tr>
                         <tr>
 
                             <td>Max: </td>
-                            <td>Thornton</td>
-                            <td>Thornton</td>
+                            <td>Degree: </td>
+                            <td>Cloud: </td>
 
                         </tr>
                         <tr>
 
                             <td >Min: </td>
-                            <td >Larry the Bird</td>
-                            <td >Larry the Bird</td>
+                            <td ></td>
+                            <td >Rain: </td>
 
                         </tr>
                     </tbody>
