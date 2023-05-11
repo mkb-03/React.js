@@ -21,7 +21,7 @@ const Home = () => {
                     <input type="text" className="form-control" id="cityName" value={cityName} placeholder="e.g Lahore" onChange={(event) => setCityName(event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1))} />
                 </div>
                 <div className="col-auto ">
-                    <button type="submit" className="btn btn-primary mb-3" > Check </button>
+                    <button type="submit" className="btn btn-secondary mb-3" > Check Weather</button>
                 </div>
             </form>
 

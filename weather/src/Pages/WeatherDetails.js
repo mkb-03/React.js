@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 const WeatherDetails = () => {
     const [weatherData, setWeatherData] = useState('')
@@ -60,18 +60,23 @@ const WeatherDetails = () => {
 
                             <td>Max: {weatherData.main && Math.trunc(weatherData.main.temp_max)}  °C</td>
                             <td>Degree: {weatherData.wind && weatherData.wind.speed} m/s</td>
-                            <td>Cloud: {weatherData.clouds && weatherData.couds.all}</td>
+                            <td>Cloud: {weatherData.clouds && weatherData.clouds.all}%</td>
 
                         </tr>
                         <tr>
 
                             <td >Min: {weatherData.main && Math.trunc(weatherData.main.temp_min)}  °C</td>
                             <td >Pressure: {weatherData.main && weatherData.main.pressure} hPa</td>
-                            <td >Rain: </td>
+                            <td >Weather: {weatherData.weather && weatherData.weather[0].main}</td>
 
                         </tr>
                     </tbody>
                 </table>
+
+                <Link to="/">
+                    <button type="submit" className="btn btn-secondary mt-3" > Check again </button>
+                </Link>
+
             </div>
         </div>
     )
