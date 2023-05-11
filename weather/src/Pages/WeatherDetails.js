@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const WeatherDetails = () => {
-    const [weatherData, setWeatherData] = useState(null)
+    const [weatherData, setWeatherData] = useState('')
     const { cityName } = useParams()
 
     useEffect(() => {
@@ -15,7 +15,7 @@ const WeatherDetails = () => {
                 const data = await response.json()
                 console.log(data);
                 
-                // setWeatherData(data)
+                setWeatherData(data)
 
                 // if(data)
                 // {
@@ -35,39 +35,38 @@ const WeatherDetails = () => {
     }, [cityName])
 
 
-
     return (
 
         <div style={{ height: "620px", backgroundColor: "#031633" }}>
             <div className="container text-center pt-5 " >
                 <h2>{cityName}</h2>
-                <table className="table mt-5 ">
+                <table className="table table-bordered mt-5 border border-white">
                     <thead>
                         <tr >
                             <th scope="col">Temerature</th>
                             <th scope="col">Wind</th>
-                            <th scope="col">Humidity</th>
+                            <th scope="col">Other</th>
 
                         </tr>
                     </thead>
                     <tbody className='mt-5'>
                         <tr >
-                            <td >Temperature:  °C </td>
-                            <td>Speed: </td>
-                            <td>Humidity: </td>
+                            <td >Temperature: {weatherData.main && Math.trunc(weatherData.main.temp)}  °C </td>
+                            <td>Speed: {weatherData.wind && weatherData.wind.speed} m/s</td>
+                            <td>Humidity: {weatherData.main && weatherData.main.humidity}%</td>
 
                         </tr>
                         <tr>
 
-                            <td>Max: </td>
-                            <td>Degree: </td>
-                            <td>Cloud: </td>
+                            <td>Max: {weatherData.main && Math.trunc(weatherData.main.temp_max)}  °C</td>
+                            <td>Degree: {weatherData.wind && weatherData.wind.speed} m/s</td>
+                            <td>Cloud: {weatherData.clouds && weatherData.couds.all}</td>
 
                         </tr>
                         <tr>
 
-                            <td >Min: </td>
-                            <td ></td>
+                            <td >Min: {weatherData.main && Math.trunc(weatherData.main.temp_min)}  °C</td>
+                            <td >Pressure: {weatherData.main && weatherData.main.pressure} hPa</td>
                             <td >Rain: </td>
 
                         </tr>
