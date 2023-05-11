@@ -7,7 +7,7 @@ const About = () => {
             <h2 className='pt-5 pb-5 border-bottom border-top'>About Us</h2>
 
             <div className="container">
-                <p className="mt-3">We are a weather checker company that tells you the details of weather in your desired city. When you enter the name of your city we will tell you about the following details in your city: </p>
+                <p className="mt-3">Weather App is a weather checking app that tells you the details of weather in your desired city. When you enter the name of your city we will tell you about the following details in your city: </p>
                 <ul className="mt-3">
                     <li>Current Temperature</li>
                     <li>Minimum Temperature</li>
@@ -22,11 +22,12 @@ const About = () => {
 
                 <p>
                     Want to check weather details in your city ?
+                    <Link to="/">
+                        <button type="submit" className="btn btn-secondary ms-3 " > Click Here </button>
+                    </Link>
                 </p>
 
-                <Link to="/">
-                    <button type="submit" className="btn btn-secondary mt-1" > Click Here </button>
-                </Link>
+
 
             </div>
         </div>

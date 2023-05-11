@@ -75,7 +75,7 @@ const WeatherDetails = () => {
                 </table>
 
                 <Link to="/">
-                    <button type="submit" className="btn btn-secondary mt-3" > Check again </button>
+                    <button type="submit" className="btn btn-secondary mt-5" > Check again </button>
                 </Link>
 
             </div>
