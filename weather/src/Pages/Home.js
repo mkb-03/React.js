@@ -13,7 +13,7 @@ const Home = () => {
 
     return (
         <div style={{ height: "620px", backgroundColor: "#031633" }}>
-            <div className='cityName'>
+            <div className='cityName '>
                 Enter the name of city
             </div>
             <form className="row g-2 mt-3 justify-content-center" onSubmit={handleSubmit}>
