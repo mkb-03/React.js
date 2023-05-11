@@ -13,7 +13,7 @@ const WeatherDetails = () => {
                 const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=ba0fbe3ba356d819fc1351fe5ca089a2&units=metric`)
 
                 const data = await response.json()
-
+                console.log(data);
                 setWeatherData(data)
 
             } catch (error) {
@@ -32,7 +32,7 @@ const WeatherDetails = () => {
         <div style={{ height: "620px", backgroundColor: "#031633" }}>
             <div className="container text-center pt-5 " >
                 <h2>{cityName}</h2>
-                <table class="table mt-5 ">
+                <table className="table mt-5 ">
                     <thead>
                         <tr >
                             <th scope="col">Temerature</th>
@@ -44,20 +44,20 @@ const WeatherDetails = () => {
                     <tbody>
                         <tr>
                             <td >Temperature:  </td>
-                            <td>Mark</td>
-                            <td>Otto</td>
+                            <td></td>
+                            <td>Max Temperature</td>
 
                         </tr>
                         <tr>
 
-                            <td>Jacob</td>
+                            <td>Max: </td>
                             <td>Thornton</td>
                             <td>Thornton</td>
 
                         </tr>
                         <tr>
 
-                            <td >Larry the Bird</td>
+                            <td >Min: </td>
                             <td >Larry the Bird</td>
                             <td >Larry the Bird</td>
 
