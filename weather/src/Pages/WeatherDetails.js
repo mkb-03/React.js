@@ -40,7 +40,7 @@ const WeatherDetails = () => {
         <div style={{ height: "620px", backgroundColor: "#031633" }}>
                 <h2 className='pt-5 pb-5 border-bottom border-top'>{cityName}</h2>
                 
-            <div className="container text-center pt-5 " >
+            <div className="container text-center pt-3 " >
                 <table className="table table-bordered mt-5 border border-white">
                     <thead>
                         <tr >

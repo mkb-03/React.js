@@ -29,7 +29,7 @@ h2 {
   font-family:'Roboto', sans-serif;
   color: white;
   text-align: center;
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 600px;
   font-weight: bold;
   text-shadow: 1px 1px 1px #5d5d5d;
@@ -47,4 +47,16 @@ td{
   color: white;
   font-size: 17px;
   font-weight: 200px;
+}
+
+p{
+  font-family:'Roboto', sans-serif;
+  color: white;
+  font-size: 18px;
+}
+
+li{
+  font-family:'Roboto', sans-serif;
+  color: white;
+  font-size: 16px;
 }
