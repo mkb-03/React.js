@@ -5,9 +5,15 @@ Current Temperature
 Minimum Temperature
 
 Maximum Temperature
+
 Wind Speed
+
 Wind Degree
+
 Atmospheric Pressure
+
 Humidity
+
 Clouds
+
 Weather
