@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const WeatherDetails = () => {
-    const {cityName} = useParams()
+    const [weatherData, setWeatherData] = useState(null)
+    const { cityName } = useParams()
 
     useEffect(() => {
         const getWeatherData = async () => {
@@ -12,11 +13,8 @@ const WeatherDetails = () => {
                 const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=ba0fbe3ba356d819fc1351fe5ca089a2&units=metric`)
 
                 const data = await response.json()
-                console.log(data);
-                
-                if (data) {
 
-                }
+                setWeatherData(data)
 
             } catch (error) {
                 console.log(error)
@@ -30,18 +28,42 @@ const WeatherDetails = () => {
 
 
     return (
-        <div className="container text-center mt-5">
 
-            <div className="row align-items-start">
-                <div className="col">
-                    Temperature
-                </div>
-                <div className="col">
-                    Rain
-                </div>
-                <div className="col">
-                    Wind
-                </div>
+        <div style={{ height: "620px", backgroundColor: "#031633" }}>
+            <div className="container text-center pt-5 " >
+                <h2>{cityName}</h2>
+                <table class="table mt-5 ">
+                    <thead>
+                        <tr >
+                            <th scope="col">Temerature</th>
+                            <th scope="col">Wind</th>
+                            <th scope="col">Humidity</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td >Temperature:  </td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+
+                        </tr>
+                        <tr>
+
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>Thornton</td>
+
+                        </tr>
+                        <tr>
+
+                            <td >Larry the Bird</td>
+                            <td >Larry the Bird</td>
+                            <td >Larry the Bird</td>
+
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     )

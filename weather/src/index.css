@@ -24,3 +24,19 @@ code {
   
   
 }
+
+h2 {
+  font-family:'Roboto', sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600px;
+  text-shadow: 1px 1px 1px #5d5d5d;
+}
+
+th{
+  font-family:'Roboto', sans-serif;
+  color: white;
+  font-size: 20px;
+}
+

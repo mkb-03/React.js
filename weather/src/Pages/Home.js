@@ -18,7 +18,7 @@ const Home = () => {
             </div>
             <form className="row g-2 mt-3 justify-content-center" onSubmit={handleSubmit}>
                 <div className="col-auto">
-                    <input type="text" className="form-control" id="cityName" value={cityName} placeholder="e.g Lahore" onChange={(event) => setCityName(event.target.value)} />
+                    <input type="text" className="form-control" id="cityName" value={cityName} placeholder="e.g Lahore" onChange={(event) => setCityName(event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1))} />
                 </div>
                 <div className="col-auto ">
                     <button type="submit" className="btn btn-primary mb-3" > Check </button>
