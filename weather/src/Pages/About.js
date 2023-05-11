@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const About = () => {
     return (
         <div style={{ height: "620px", backgroundColor: "#031633" }}>
-            <h2 className='pt-5 pb-5 border-bottom border-top'>About Us</h2>
+            <h2 className='pt-5 pb-5 border-bottom'>About Us</h2>
 
             <div className="container">
                 <p className="mt-3">Weather App is a weather checking app that tells you the details of weather in your desired city. When you enter the name of your city we will tell you about the following details in your city: </p>
