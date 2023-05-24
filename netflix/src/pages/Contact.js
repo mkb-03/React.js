@@ -23,14 +23,17 @@ const Contact = () => {
               Contacting Netflix is now easier than ever when you contact us from the Netflix app on your Android or iOS phone or tablet! Calling through the app is free - all you need is an internet or cellular connection.
             </p>
 
-            <div className='col-8 pb-4 border-bottom border-secondary'>
-              <h6 className='mt-2 h6 ' >Download the Netflix app: </h6>
+            <div className='col-8 pb-4'>
+              <h6 className='mt-4 h6 ' >Download the Netflix app: </h6>
+              <div className="pt-2">
+
               <a  href={googleAppstore} target={"_blank"} rel='noopener noreferrer' >
-                <img src={google} className='badges' />
+                <img src={google} className='badges ' />
               </a>
               <a href={iosAppstore} target={"_blank"} rel='noopener noreferrer' >
                 <img src={apple} className='badgesApple' />
               </a>
+              </div>
             </div>
 
           </div>
@@ -51,8 +54,8 @@ const Contact = () => {
 
       </div>
 
-      <div className=" col-7 mx-5 mt-4">
-        <h2 className="mt-1 h2">Call us from any phone</h2>
+      <div className=" col-7 mx-5 mt-4  border-top border-secondary">
+        <h2 className="mt-4 h2">Call us from any phone</h2>
         <button type="button" className="btn btn-outline-secondary mt-2 px-3">Call Us</button>
       </div>
 
