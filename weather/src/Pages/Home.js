@@ -9,7 +9,13 @@ const Home = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         navigate(`/${cityName}`)
+
     }
+
+    const handleOnChange = useCallback((event) => {
+        setCityName(event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1));
+      }, []);
+    
 
     return (
         <div style={{ height: "620px", backgroundColor: "#031633" }}>
@@ -18,7 +24,7 @@ const Home = () => {
             </div>
             <form className="row g-2 mt-3 justify-content-center" onSubmit={handleSubmit}>
                 <div className="col-auto">
-                    <input type="text" className="form-control" id="cityName" value={cityName} placeholder="e.g Lahore" onChange={(event) => setCityName(event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1))} />
+                    <input type="text" className="form-control" id="cityName" value={cityName} placeholder="e.g Lahore" onChange={handleOnChange} />
                 </div>
                 <div className="col-auto ">
                     <button type="submit" className="btn btn-secondary mb-3" > Check Weather</button>
