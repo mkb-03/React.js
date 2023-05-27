@@ -14,15 +14,8 @@ const WeatherDetails = () => {
 
                 const data = await response.json()
                 console.log(data);
-                
-                setWeatherData(data)
 
-                // if(data)
-                // {
-                //     const {
-                        
-                //     } = newData
-                // }
+                setWeatherData(data)
 
 
             } catch (error) {
@@ -38,8 +31,8 @@ const WeatherDetails = () => {
     return (
 
         <div style={{ height: "620px", backgroundColor: "#031633" }}>
-                <h2 className='pt-5 pb-5 border-bottom '>{cityName}</h2>
-                
+            <h2 className='pt-5 pb-5 border-bottom '>{cityName}</h2>
+
             <div className="container text-center pt-3 " >
                 <table className="table table-bordered mt-5 border border-white">
                     <thead>
@@ -75,7 +68,8 @@ const WeatherDetails = () => {
                 </table>
 
                 <Link to="/">
-                    <button type="submit" className="btn btn-secondary mt-5" > Check again </button>
+                    <button type="submit" className="btn btn-secondary mt-5" > 
+                    {" "}Check again{" "} </button>
                 </Link>
 
             </div>
