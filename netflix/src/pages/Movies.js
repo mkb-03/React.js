@@ -5,7 +5,7 @@ const Movies = ({ movieItems }) => {
   return (
     <>
       <div className='mt-5 mx-5 ' >
-        <Link className="btn btn-danger shadow-lg p-2  mb-5 rounded " aria-current="page" to="/"> Back to Home</Link>
+        <Link className="btn btn-danger shadow p-2  mb-5 rounded " aria-current="page" to="/"> Back to Home</Link>
         <h1 className="text">Latest Movies: </h1>
 
         <div className="container mx-5 mt-5 row row-cols-1 row-cols-md-3">

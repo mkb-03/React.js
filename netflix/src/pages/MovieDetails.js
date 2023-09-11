@@ -10,7 +10,7 @@ const MovieDetails = () => {
     return (
         <>
             <div className='mt-5 mx-5 ' >
-                <Link className="btn btn-danger shadow-lg p-2 rounded " aria-current="page" to="/"> Back to Home</Link>
+                <Link className="btn btn-danger shadow p-2 rounded " aria-current="page" to="/"> Back to Home</Link>
                 <h1 className="mt-5 text">Details: </h1>
             </div>
 

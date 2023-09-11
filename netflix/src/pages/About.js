@@ -6,7 +6,7 @@ const About = () => {
   return (
     <>
       <div className='mt-4 mx-5' >
-        <Link className="btn btn-danger shadow-lg p-2 mt-3 mb-5 rounded " aria-current="page" to="/"> Back to Home</Link>
+        <Link className="btn btn-danger shadow p-2 mt-3 mb-5 rounded " aria-current="page" to="/"> Back to Home</Link>
 
         <h1 className="mt-1 text">What is Netflix ?</h1>
         <div className=' mt-4 '>

@@ -10,7 +10,7 @@ const Contact = () => {
   return (
     <>
       <div className=' mx-5 mt-4' >
-        <Link className="btn btn-danger shadow-lg p-2 mb-5 mt-3 rounded" aria-current="page" to="/"> Back to Home</Link>
+        <Link className="btn btn-danger shadow p-2 mb-5 mt-3 rounded" aria-current="page" to="/"> Back to Home</Link>
 
         <div className="row">
           <div className="col-9 ">
