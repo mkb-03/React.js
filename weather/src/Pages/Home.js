@@ -18,7 +18,8 @@ const Home = () => {
     
 
     return (
-        <div style={{ height: "620px", backgroundColor: "#031633" }}>
+        <div className='background'>
+            
             <div className='cityName '>
                 Enter the name of city
             </div>
