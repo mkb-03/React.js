@@ -19,8 +19,8 @@ code {
   color: rgb(0, 0, 0);
   text-align: center;
   font-size: 30px;
-  /* padding-top: 150px; */
-  text-shadow: 2px 2px 2px #000000;
+  padding-top: 50px;
+  text-shadow: 1px 1px 1px #000000;
   
   
 }
@@ -30,7 +30,6 @@ h2 {
   color: black;
   text-align: center;
   font-size: 45px;
-  /* font-weight: 600px; */
   font-weight: bold;
   text-shadow: 1px 1px 1px #000000;
 }
