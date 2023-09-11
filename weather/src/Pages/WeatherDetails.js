@@ -30,11 +30,11 @@ const WeatherDetails = () => {
 
     return (
 
-        <div style={{ height: "620px", backgroundColor: "#031633" }}>
-            <h2 className='pt-5 pb-5 border-bottom '>{cityName}</h2>
+        <div style={{ height: "620px", backgroundColor: "#D3D3D3" }}>
+            <h2 className='pt-5 pb-2 '>{cityName}</h2>
 
             <div className="container text-center pt-3 " >
-                <table className="table table-bordered mt-5 border border-white">
+                <table className="table table-bordered mt-5 border border-dark">
                     <thead>
                         <tr >
                             <th scope="col">Temerature</th>
@@ -68,8 +68,8 @@ const WeatherDetails = () => {
                 </table>
 
                 <Link to="/">
-                    <button type="submit" className="btn btn-secondary mt-5" > 
-                    {" "}Check again{" "} </button>
+                    <button type="submit" className="btn btn-dark mt-5" > 
+                    Check again </button>
                 </Link>
 
             </div>
