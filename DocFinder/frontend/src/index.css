@@ -11,3 +11,120 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/*Background*/
+
+.background{
+  background-color: #c0c0c0;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  min-height: 600px;
+}
+
+h4{
+  color: white;
+}
+
+h5{
+    color: white;
+}
+
+/*dropdown menu width*/
+.custom-dropdown-menu{
+  min-width: 8px;
+}
+
+/*blue button colour*/
+.blue-button-color{
+  background-color: #006;
+  border-color: #006;
+
+}
+
+/*yellow button colour*/
+.yellow-button-color{
+  background-color: #e18400;
+  border-color: #e18400;
+
+}
+
+/*yellow colour */
+.yellow-colour{
+  color: #e18400;
+}
+
+/*blue colour */
+.blue-colour
+{
+  color: #006;
+}
+
+/*logo*/
+.logo{
+  font-weight: bolder;
+  font-size: larger;
+}
+
+/*text weight in navbar*/
+.nav-text{
+  font-weight: 600;
+
+}
+
+h1{
+  color: white;
+  font-size: xxx-large;
+  font-weight: bolder;
+}
+
+/* Custom CSS for form*/
+.my-custom-container {
+  max-width: 400px; /* Adjust the width as needed */
+  /* Add any other custom styles for the container if required */
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* Add any table styles here */
+}
+
+td {
+  border: 1px solid #000000;
+  padding: 8px;
+  font-weight: 500;
+  /* Add any table cell styles here */
+}
+
+th {
+
+  border: 2px solid #000000;
+  padding: 8px;
+  font-weight: 800;
+  /* Add any table header styles here */
+}
+
+
+.approve-button{
+  background-color: #e18400;
+  border-color: #e18400;
+  border-radius: 5px;
+  color: white;
+  margin-left: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+
+.reject-button{
+  background-color: #d32424;
+  border-color: #d32424;
+  border-radius: 5px;
+  color: white;
+  margin-left: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
