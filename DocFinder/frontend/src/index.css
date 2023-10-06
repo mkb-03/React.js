@@ -16,9 +16,7 @@ code {
 /*Background*/
 
 .background {
-  background-color: #c0c0c0;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  background-color: #dddddd;
   min-height: 100vh;
 }
 
@@ -27,6 +25,19 @@ code {
   background-size: cover;
   background-position: center;
   min-height: 75vh;
+}
+
+h1 {
+  color: white;
+  font-size: xxx-large;
+  font-weight: bolder;
+}
+
+h2{
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  /* text-shadow: 1px 1px #a6a6a6; */
 }
 
 h4 {
@@ -78,11 +89,7 @@ h5 {
 
 }
 
-h1 {
-  color: white;
-  font-size: xxx-large;
-  font-weight: bolder;
-}
+
 
 /* Custom CSS for form*/
 .my-custom-container {
@@ -136,6 +143,14 @@ th {
   padding-bottom: 5px;
 }
 
+/* image in card */
+.card .card-img-top {
+  max-width: 35%; /* Image won't exceed the width of the card */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+
 /* Media queries for responsive design */
 @media (max-width:300px) {
   h1 {
@@ -151,6 +166,11 @@ th {
     /* Adjust the font size to your preference */
     padding: 5px 10px;
     /* Adjust the padding to your preference */
+  }
+
+  .card .card-img-top {
+    max-width: 100%;
+    height: auto;
   }
 
 }
@@ -172,6 +192,10 @@ th {
 
 }
 
-@media (max-width:768px) and (min-width:480px) {}
+@media (max-width:768px) and (min-width:480px) {
+
+  
+
+}
 
 @media(min-width:768px) {}

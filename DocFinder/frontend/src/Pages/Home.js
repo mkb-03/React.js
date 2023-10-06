@@ -1,12 +1,12 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
     return (
         <>
-            <div  className='backgroundImage'>
+            <div className='backgroundImage'>
                 <div className="container">
-                    <h1 className="text-center pt-5">Welcome to <span className="yellow-colour" >Doc</span><span className="yellow-colour" >Finder</span></h1>
+                    <h1 className="text-center pt-5">Welcome to <span className="yellow-colour" >DocFinder</span></h1>
 
                     <div className="row align-items-center">
                         <div className="col-1"></div>
@@ -33,6 +33,46 @@ const Home = () => {
 
                 </div>
             </div>
+
+            <section className='background mt-5 '  >
+                <div className="container mt-5 ">
+
+                    <h2 className="text-center blue-colour mt-5 pt-5">Book an online <span className="" >Appointment</span></h2>
+
+
+                    <div class="row row-cols-1 row-cols-md-3 g-4 pt-5 ">
+                        <div class="col">
+                            <div class="card p-3 align-items-center">
+                                <img src={process.env.PUBLIC_URL + '/icon-home-1.svg'} class="card-img-top img-fluid  " alt="image-1" />
+                                <div class="card-body">
+                                    <h5 class="card-title yellow-colour text-center m-2 ">FIND A DOCTOR</h5>
+                                    <p class="card-text text-center m-2 ">Find a well qualified and experienced Doctor in your city.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card p-3 align-items-center">
+                                <img src={process.env.PUBLIC_URL + '/icon-home-2.svg'} class="card-img-top img-fluid  " alt="image-2" />
+                                <div class="card-body">
+                                    <h5 class="card-title yellow-colour text-center m-2 ">VIEW PROFILE</h5>
+                                    <p class="card-text text-center m-2 ">Visit profile of our registered Doctors before booking and appointment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card p-3 align-items-center">
+                                <img src={process.env.PUBLIC_URL + '/icon-home-3.svg'} class="card-img-top img-fluid  " alt="image-3" />
+                                <div class="card-body">
+                                    <h5 class="card-title yellow-colour text-center m-2 ">BOOK A VISIT</h5>
+                                    <p class="card-text text-center m-2 ">Check available options to book an appointment with a Doctor.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
 
         </>
     )
