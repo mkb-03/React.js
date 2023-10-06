@@ -3,7 +3,7 @@ import React from 'react'
 const Home = () => {
     return (
         <>
-            <div  style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/header-bg.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '75vh', width:'100%' }}>
+            <div  className='backgroundImage'>
                 <div className="container">
                     <h1 className="text-center pt-5">Welcome to <span className="yellow-colour" >Doc</span><span className="yellow-colour" >Finder</span></h1>
 
@@ -21,8 +21,8 @@ const Home = () => {
                                     </a>
 
                                     <div className="dropdown-menu custom-dropdown-menu me-2" aria-labelledby="dropdownMenuLink">
-                                        <a className="dropdown-item" href="/patientRegistration">Patient</a>
-                                        <a className="dropdown-item" href="/doctorRegistration">Doctor</a>
+                                        <a className="dropdown-item" href="/patientRegistration">Register as Patient</a>
+                                        <a className="dropdown-item" href="/doctorRegistration">Register as Doctor</a>
                                     </div>
                                 </span>
                             </div>
