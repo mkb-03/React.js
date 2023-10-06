@@ -161,6 +161,9 @@ th {
     font-size: 0.888rem;
   }
 
+  h5{
+    font-size: 0.666rem;
+  }
   .yellow-button-color {
     font-size: 14px;
     /* Adjust the font size to your preference */
@@ -198,4 +201,6 @@ th {
 
 }
 
-@media(min-width:768px) {}
+@media(min-width:768px) {
+
+}
