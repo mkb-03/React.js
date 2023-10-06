@@ -31,27 +31,27 @@ const Navbar = () => {
 
                         </ul>
 
-                        <div class="d-flex" >
+                        <div className="d-flex" >
 
-                            <div class="dropdown show me-2">
-                                <Link class="btn btn-secondary blue-button-color " to="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div className="dropdown show me-2">
+                                <Link className="btn btn-secondary blue-button-color " to="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Register
                                 </Link>
 
-                                <div class="dropdown-menu custom-dropdown-menu me-2" aria-labelledby="dropdownMenuLink">
-                                    <Link class="dropdown-item" to="/patientRegistration">Patient</Link>
-                                    <Link class="dropdown-item" to="/doctorRegistration">Doctor</Link>
+                                <div className="dropdown-menu custom-dropdown-menu me-2" aria-labelledby="dropdownMenuLink">
+                                    <Link className="dropdown-item" to="/patientRegistration">Patient</Link>
+                                    <Link className="dropdown-item" to="/doctorRegistration">Doctor</Link>
                                 </div>
                             </div>
 
-                            <div class="dropdown show me-4">
-                                <Link class="btn btn-secondary blue-button-color " to="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div className="dropdown show me-4">
+                                <Link className="btn btn-secondary blue-button-color " to="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Log In
                                 </Link>
 
-                                <div class="dropdown-menu custom-dropdown-menu me-2" aria-labelledby="dropdownMenuLink">
-                                    <Link class="dropdown-item  " to="/patientlogin">Patient</Link>
-                                    <Link class="dropdown-item" to="/doctorlogin">Doctor</Link>
+                                <div className="dropdown-menu custom-dropdown-menu me-2" aria-labelledby="dropdownMenuLink">
+                                    <Link className="dropdown-item  " to="/patientlogin">Patient</Link>
+                                    <Link className="dropdown-item" to="/doctorlogin">Doctor</Link>
                                 </div>
                             </div>
                         </div>

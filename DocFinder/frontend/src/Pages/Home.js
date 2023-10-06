@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const Home = () => {
     return (
@@ -21,8 +22,8 @@ const Home = () => {
                                     </a>
 
                                     <div className="dropdown-menu custom-dropdown-menu me-2" aria-labelledby="dropdownMenuLink">
-                                        <a className="dropdown-item" href="/patientRegistration">Register as Patient</a>
-                                        <a className="dropdown-item" href="/doctorRegistration">Register as Doctor</a>
+                                        <Link className="dropdown-item" href="/patientRegistration">Register as Patient</Link>
+                                        <Link className="dropdown-item" href="/doctorRegistration">Register as Doctor</Link>
                                     </div>
                                 </span>
                             </div>
