@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <>
             <div className='backgroundImage mt-2 '>
-                <div className="container">
+                <div className="container pt-3">
                     <h1 className="text-center pt-5">Welcome to <span className="yellow-colour" >DocFinder</span></h1>
 
                     <div className="row align-items-center">
@@ -16,7 +16,7 @@ const Home = () => {
                             </h4>
 
                             <div className="mt-4 mx-5 text-center">
-                                <span className="dropdown show ms-2">
+                                <span className="dropdown dropdown-center show ms-2">
                                     <a className="btn btn-secondary yellow-button-color shadow" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Get Started
                                     </a>
