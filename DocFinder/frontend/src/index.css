@@ -20,7 +20,7 @@ code {
   min-height: 100vh;
 }
 
-.backgroundImage{
+.backgroundImage {
   background-image: url('../public/header-bg.jpg');
   background-size: cover;
   background-position: center;
@@ -33,7 +33,7 @@ h1 {
   font-weight: bolder;
 }
 
-h2{
+h2 {
   color: white;
   font-size: 2.5rem;
   font-weight: bold;
@@ -145,8 +145,10 @@ th {
 
 /* image in card */
 .card .card-img-top {
-  max-width: 35%; /* Image won't exceed the width of the card */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 35%;
+  /* Image won't exceed the width of the card */
+  height: auto;
+  /* Maintain aspect ratio */
 }
 
 
@@ -157,23 +159,29 @@ th {
     font-size: 1.5rem;
   }
 
+  h2 {
+    font-size: 1.5rem;
+
+  }
+
   h4 {
     font-size: 0.888rem;
   }
 
-  h5{
-    font-size: 0.666rem;
+  h5 {
+    font-size: 1rem;
   }
+
+  p {
+    font-size: 0.7777rem;
+
+  }
+
   .yellow-button-color {
     font-size: 14px;
     /* Adjust the font size to your preference */
     padding: 5px 10px;
     /* Adjust the padding to your preference */
-  }
-
-  .card .card-img-top {
-    max-width: 100%;
-    height: auto;
   }
 
 }
@@ -183,9 +191,24 @@ th {
     font-size: 2rem;
   }
 
+  h2 {
+    font-size: 1.6rem;
+
+  }
+
   h4 {
     font-size: 1rem;
   }
+
+  h5 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.789rem;
+
+  }
+
   .yellow-button-color {
     font-size: 14px;
     /* Adjust the font size to your preference */
@@ -193,14 +216,35 @@ th {
     /* Adjust the padding to your preference */
   }
 
+
+
 }
 
 @media (max-width:768px) and (min-width:480px) {
 
-  
+  h2 {
+    font-size: 2rem;
+
+  }
+
+  h4 {
+    font-size: 1.3rem;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 15px;
+
+  }
 
 }
 
 @media(min-width:768px) {
+  p {
+    font-size: 0.8888rem;
 
+  }
 }

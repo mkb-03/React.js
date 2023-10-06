@@ -74,7 +74,7 @@ const Home = () => {
 
                     <div className="text-center">
                     <a className="btn btn-secondary yellow-button-color mt-5 shadow  " href="#" role="button" >
-                        Find A Doctor
+                        Find Doctor
                     </a>
                     </div>
                     
