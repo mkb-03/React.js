@@ -3,32 +3,31 @@ import React from 'react'
 const Home = () => {
     return (
         <>
-            <div  style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/header-bg.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center', Height: '100%', width:'100vw' }}>
-                <div class="container">
-                    <h1 class="text-center pt-5">Welcome to <span class="yellow-colour" >Doc</span><span class="yellow-colour" >Finder</span></h1>
+            <div  style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/header-bg.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '75vh', width:'100%' }}>
+                <div className="container">
+                    <h1 className="text-center pt-5">Welcome to <span className="yellow-colour" >Doc</span><span className="yellow-colour" >Finder</span></h1>
 
-                    <div class="row align-items-center">
-                        <div class="col-1"></div>
-                        <div class="col-10">
-                            <h4 class="mt-5 mx-5">
-                                Having trouble finding a Doctor near you and booking an appointment?
+                    <div className="row align-items-center">
+                        <div className="col-1"></div>
+                        <div className="col-10">
+                            <h4 className="mt-5 mx-5 text-center">
+                                Looking for a Doctor near you?
                             </h4>
 
-                            <h5 class="mt-2 mx-5">
-                                Register as a patient or a doctor to get started:
-                                <span class="dropdown show me-2">
-                                    <a class="btn btn-secondary yellow-button-color" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Register
+                            <div className="mt-4 mx-5 text-center">
+                                <span className="dropdown show ms-2">
+                                    <a className="btn btn-secondary yellow-button-color" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Get Started
                                     </a>
 
-                                    <div class="dropdown-menu custom-dropdown-menu me-2" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="/patientRegistration">Patient</a>
-                                        <a class="dropdown-item" href="/doctorRegistration">Doctor</a>
+                                    <div className="dropdown-menu custom-dropdown-menu me-2" aria-labelledby="dropdownMenuLink">
+                                        <a className="dropdown-item" href="/patientRegistration">Patient</a>
+                                        <a className="dropdown-item" href="/doctorRegistration">Doctor</a>
                                     </div>
                                 </span>
-                            </h5>
+                            </div>
                         </div>
-                        <div class="col-1"></div>
+                        <div className="col-1"></div>
                     </div>
 
                 </div>
