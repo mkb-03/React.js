@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -83,27 +83,28 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='mt-5 pb-5 ' >
+            {/* Testimonials */}
+            <section className="mt-5 pb-5">
                 <h2 className="text-center blue-colour mt-5 pt-5">Our User Reviews</h2>
                 <div className="container">
-
-
-                    <div id="testimonialCarousel" className="carousel slide text-center carousel-dark border rounded shadow pt-5 pb-5 mt-5" data-mdb-ride="carousel">
+                    <div
+                        id="testimonialCarousel"
+                        className="carousel slide text-center carousel-dark border rounded shadow pt-5 pb-5 mt-5"
+                    >
                         <div className="carousel-inner">
                             <div className="carousel-item active">
-                                <img className="rounded-circle shadow-1-strong mb-4"
-                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp" alt="avatar"
-                                    style={{ width: '150px' }} />
+                                <img
+                                    className="rounded-circle shadow-1-strong mb-4"
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+                                    alt="avatar"
+                                    style={{ width: '150px' }}
+                                />
                                 <div className="row d-flex justify-content-center">
                                     <div className="col-lg-8">
                                         <h6 className="mb-3">Maria Kate</h6>
-                                        
-                                        <p >
+                                        <p>
                                             <i className="fa fa-quote-left pe-2"></i>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti
-                                            nesciunt sint eligendi reprehenderit reiciendis, quibusdam illo, beatae quia
-                                            fugit consequatur laudantium velit magnam error. Consectetur distinctio fugit
-                                            doloremque.
+                                            I had an amazing experience using DocFinder to find a doctor for my recent health concern. The platform made it so easy to browse through a list of qualified doctors in my area, read their profiles, and book an appointment.
                                         </p>
                                     </div>
                                 </div>
@@ -116,17 +117,19 @@ const Home = () => {
                                 </ul>
                             </div>
                             <div className="carousel-item">
-                                <img className="rounded-circle shadow-1-strong mb-4"
-                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar"
-                                    style={{ width: '150px' }} />
+                                <img
+                                    className="rounded-circle shadow-1-strong mb-4"
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp"
+                                    alt="avatar"
+                                    style={{ width: '150px' }}
+                                />
                                 <div className="row d-flex justify-content-center">
                                     <div className="col-lg-8">
                                         <h5 className="mb-3">John Doe</h5>
-                                        <p>Web Developer</p>
+                            
                                         <p className="text-muted">
                                             <i className="fa fa-quote-left pe-2"></i>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti
-                                            nesciunt sint eligendi reprehenderit reiciendis.
+                                            DocFinder truly made a difference in my healthcare journey. After a quick search, I found a doctor who specialized in the exact condition I was dealing with. Not only did the doctor provide me with expert advice, but they also took the time to explain everything in a way that I could understand.
                                         </p>
                                     </div>
                                 </div>
@@ -139,18 +142,19 @@ const Home = () => {
                                 </ul>
                             </div>
                             <div className="carousel-item">
-                                <img className="rounded-circle shadow-1-strong mb-4"
-                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" alt="avatar" style={{ width: '150px' }} />
+                                <img
+                                    className="rounded-circle shadow-1-strong mb-4"
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
+                                    alt="avatar"
+                                    style={{ width: '150px' }}
+                                />
                                 <div className="row d-flex justify-content-center">
                                     <div className="col-lg-8">
                                         <h5 className="mb-3">Anna Deynah</h5>
-                                        <p>UX Designer</p>
+                                    
                                         <p className="text-muted">
                                             <i className="fa fa-quote-left pe-2"></i>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti
-                                            nesciunt sint eligendi reprehenderit reiciendis, quibusdam illo, beatae quia
-                                            fugit consequatur laudantium velit magnam error. Consectetur distinctio fugit
-                                            doloremque.
+                                            I was skeptical about finding a doctor online, but DocFinder exceeded my expectations. I selected a doctor based on patient reviews and ratings, and it turned out to be a fantastic choice. The doctor was not only knowledgeable but also very patient.
                                         </p>
                                     </div>
                                 </div>
@@ -163,13 +167,11 @@ const Home = () => {
                                 </ul>
                             </div>
                         </div>
-                        <button className="carousel-control-prev" type="button" data-mdb-target="#testimonialCarousel"
-                            data-mdb-slide="prev">
+                        <button className="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
                             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span className="visually-hidden">Previous</span>
                         </button>
-                        <button className="carousel-control-next" type="button" data-mdb-target="#testimonialCarousel"
-                            data-mdb-slide="next">
+                        <button className="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
                             <span className="carousel-control-next-icon" aria-hidden="true"></span>
                             <span className="visually-hidden">Next</span>
                         </button>
