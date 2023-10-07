@@ -126,7 +126,7 @@ const Home = () => {
                                 <div className="row d-flex justify-content-center">
                                     <div className="col-lg-8">
                                         <h5 className="mb-3">John Doe</h5>
-                            
+
                                         <p className="text-muted">
                                             <i className="fa fa-quote-left pe-2"></i>
                                             DocFinder truly made a difference in my healthcare journey. After a quick search, I found a doctor who specialized in the exact condition I was dealing with. Not only did the doctor provide me with expert advice, but they also took the time to explain everything in a way that I could understand.
@@ -151,7 +151,7 @@ const Home = () => {
                                 <div className="row d-flex justify-content-center">
                                     <div className="col-lg-8">
                                         <h5 className="mb-3">Anna Deynah</h5>
-                                    
+
                                         <p className="text-muted">
                                             <i className="fa fa-quote-left pe-2"></i>
                                             I was skeptical about finding a doctor online, but DocFinder exceeded my expectations. I selected a doctor based on patient reviews and ratings, and it turned out to be a fantastic choice. The doctor was not only knowledgeable but also very patient.
@@ -178,6 +178,35 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            <footer class="blue-background text-white py-4 mt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5 className='yellow-colour' >About Us</h5>
+                            <p>DocFinder simplifies healthcare by connecting you with trusted doctors and practitioners.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 className='yellow-colour' >Quick Links</h5>
+                            <ul class="list-unstyled  ">
+                                <li><a className='custom-link' href="#">Home</a></li>
+                                <li><a className='custom-link' href="#">Services</a></li>
+                                <li><a className='custom-link' href="#">Find Doctor</a></li>
+                                <li><a className='custom-link' href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 className='yellow-colour' >Contact Us</h5>
+                            <address>
+                                <p><i class="fa fa-map-marker me-1"></i> 123 Main St, City</p>
+                                <p><i class="fa fa-phone me-1 "></i> (123) 456-7890</p>
+                                <p><i class="fa fa-envelope me-1 "></i> info@example.com</p>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
 
         </>
     )

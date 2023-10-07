@@ -80,6 +80,10 @@ h5 {
   color: #006;
 }
 
+.blue-background{
+  background-color: #006;
+}
+
 /*logo*/
 .logo {
   font-weight: bolder;
@@ -152,6 +156,17 @@ th {
   /* Image won't exceed the width of the card */
   height: auto;
   /* Maintain aspect ratio */
+}
+
+/* styles.css */
+
+.custom-link {
+  text-decoration: none; /* Remove underline */
+  color: white; /* Set your desired text color here */
+}
+
+.custom-link:hover {
+  color: #e18400; /* Set your desired text color for hover state */
 }
 
 
