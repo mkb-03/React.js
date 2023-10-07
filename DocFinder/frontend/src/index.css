@@ -13,6 +13,9 @@ code {
 }
 
 
+/* Import Font Awesome CSS */
+@import '~font-awesome/css/font-awesome.min.css';
+
 /*Background*/
 
 .background {
