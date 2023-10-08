@@ -33,11 +33,16 @@ routes.initialize_routes(api)
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory('static', path)
 def serve_react_app(path):
     if path == '':
         return send_from_directory('frontend/build', 'index.html')
     else:
         return send_from_directory('frontend/build', path)
+    
+
 
 
 @app.route('/patientLogin', methods=['POST'])
