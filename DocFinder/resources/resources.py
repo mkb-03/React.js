@@ -68,19 +68,20 @@ class doctorAPI(Resource):
 
     def post(self):
         try:
-            # Get the form data
-            name = request.form['name']
-            gender = request.form['gender']
-            speciality = request.form['speciality']
-            experience = float(request.form['experience'])
-            hospital_name = request.form['hospital_name']
-            city = request.form['city']
-            email = request.form['email']
-            phone_no = request.form['phone_no']
-            password = request.form['password']
+            data = request.get_json()  # Parse JSON data
+
+            # Extract data from the JSON object
+            name = data['name']
+            gender = data['gender']
+            speciality = data['speciality']
+            experience = float(data['experience'])
+            hospital_name = data['hospital_name']
+            city = data['city']
+            email = data['email']
+            phone_no = data['phone_no']
+            password = data['password']
 
             # Check if the email or phone number already exist in the database
-
             if doctors.objects(email=email).first():
                 return {'error': 'This Email is already registered'}, 400
             elif patients.objects(email=email).first():
@@ -91,11 +92,18 @@ class doctorAPI(Resource):
             elif patients.objects(phone_no=phone_no).first():
                 return {'error': 'This Phone no. is already registered'}, 400
 
-            d = doctors(name=name, gender=gender, speciality=speciality, experience=experience, hospital_name=hospital_name, city=city, email=email, phone_no=phone_no, password=password, status="pending").save()
+            d = doctors(
+                name=name, gender=gender, speciality=speciality,
+                experience=experience, hospital_name=hospital_name,
+                city=city, email=email, phone_no=phone_no,
+                password=password, status="pending"
+            ).save()
+
             # Return a success message
             return {'message': 'Registration pending'}, 200
         except Exception as e:
             return {'message': str(e)}, 400
+
 
     def put(self, id, status):
         try:

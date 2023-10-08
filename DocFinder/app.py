@@ -1,11 +1,13 @@
-from flask import Flask, jsonify, request, render_template, session
+from flask import Flask, jsonify, request, render_template, session, send_from_directory
 from database import dbinitialization
 from database.models import *
 from flask_restful import Api
 from resources import routes
 from flask_session import Session
+from flask_cors import CORS
 
 app = Flask(__name__, static_url_path='/static')
+CORS(app)  # Enable CORS for your app
 
 app.secret_key="bsjvhusdhg5565645"
 
@@ -29,93 +31,13 @@ api = Api(app)
 routes.initialize_routes(api)
 
 
-@app.route('/')
-def home():
-    return render_template('homePage.html', title='Home')
-
-
-@app.route('/about')
-def about():
-    return render_template('about.html', title='About Us')
-
-
-@app.route('/patientRegistration')
-def patientRegistration():
-    return render_template("patientRegistration.html", title='Patient Registration')
-
-
-@app.route('/doctorRegistration')
-def doctorRegistration():
-    return render_template("doctorRegistration.html")
-
-
-@app.route('/admin')
-def admin():
-    return render_template("adminMainPage.html")
-
-
-@app.route('/patientMainPage')
-def patient():
-   if session:
-       return render_template("patientMainPage.html")
-   else:
-       return render_template("homePage.html")
-
-
-@app.route('/doctorMainPage')
-def doctors():
-    if session:
-        return render_template("doctorMainPage.html")
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve_react_app(path):
+    if path == '':
+        return send_from_directory('frontend/build', 'index.html')
     else:
-        return render_template("homePage.html")
-
-
-@app.route('/searchDoctors')
-def searchDoctors():
-    if session:
-        return render_template("searchDoctors.html")
-    else:
-        return render_template("homePage.html")
-
-
-@app.route('/doctorRecords')
-def doctorRecords():
-    if session:
-        return render_template("doctorsRecords.html")
-    else:
-        return render_template("homePage.html")
-
-
-@app.route('/showPendingPatients')
-def showPatients():
-    return render_template("displayPendingPatients.html")
-
-
-
-@app.route('/showPendingDoctors')
-def showDoctors():
-        return render_template("displayPendingDoctors.html")
-
-
-@app.route('/showRegisteredPatients')
-def showRegisteredPatients():
-        return render_template("registeredPatients.html")
-
-
-@app.route('/showRegisteredDoctors')
-def showRegisteredDoctors():
-        return render_template("registeredDoctors.html")
-
-
-
-@app.route('/patientlogin')
-def patientlogin():
-    return render_template("patientLogin.html")
-
-
-@app.route('/doctorlogin')
-def doctorlogin():
-    return render_template("doctorLogin.html")
+        return send_from_directory('frontend/build', path)
 
 
 @app.route('/patientLogin', methods=['POST'])
@@ -144,51 +66,6 @@ def patientLogin():
         return {'message': f'error occurred due to {str(e)}'}, 404
 
 
-@app.route('/pendingPatientAppointments')
-def pendingPatientAppointments():
-    return render_template("withdrawPendingAppointments.html")
-
-
-@app.route('/approvedPatientAppointments')
-def approvedPatientAppointments():
-    if session:
-        return render_template("withdrawApprovedAppointments.html")
-    else:
-        return render_template("homePage.html")
-
-
-@app.route('/examinedPatientAppointments')
-def examinedPatientAppointments():
-    if session:
-        return render_template("withdrawExaminedAppointments.html")
-    else:
-        return render_template("homePage.html")
-
-
-@app.route('/pendingAppointments')
-def pendingAppointments():
-    if session:
-        return render_template("pendingAppointments.html")
-    else:
-        return render_template("homePage.html")
-
-
-@app.route('/approvedAppointments')
-def approvedAppointments():
-    if session:
-        return render_template("approvedAppointments.html")
-    else:
-        return render_template("homePage.html")
-
-
-@app.route('/examinedAppointments')
-def examinedAppointments():
-    if session:
-        return render_template("examinedAppointments.html")
-    else:
-        return render_template("homePage.html")
-
-
 @app.route('/deletePatient/<id>', methods=['DELETE'])
 def deletePatient(id):
     try:
@@ -197,15 +74,7 @@ def deletePatient(id):
         return {"message": "Account deleted successfully"}, 200
     except Exception as e:
         return {"message": f"Error occurred: {str(e)}"}, 500
-
-
-@app.route('/logout')
-def logout():
-    try:
-        session.clear()
-        return render_template("homePage.html")
-    except Exception as e:
-        pass
+    
 
 
 if __name__ == '__main__':
