@@ -7,7 +7,8 @@ from flask_session import Session
 from flask_cors import CORS
 
 app = Flask(__name__, static_url_path='/static')
-CORS(app)  # Enable CORS for your app
+CORS(app, origins="http://localhost:3000", supports_credentials=True, allow_headers=["Content-Type", "Authorization"], methods=["OPTIONS", "GET", "POST", "PUT", "DELETE"])
+
 
 app.secret_key="bsjvhusdhg5565645"
 
@@ -44,7 +45,6 @@ def serve_react_app(path):
     
 
 
-
 @app.route('/patientLogin', methods=['POST'])
 def patientLogin():
     try:
@@ -79,7 +79,7 @@ def deletePatient(id):
         return {"message": "Account deleted successfully"}, 200
     except Exception as e:
         return {"message": f"Error occurred: {str(e)}"}, 500
-    
+
 
 
 if __name__ == '__main__':

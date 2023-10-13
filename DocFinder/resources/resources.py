@@ -1,35 +1,33 @@
-from flask import request, jsonify, Response, session
+from flask import request, jsonify, session
 from flask_restful import Resource
 from database.models import patients, doctors, appointments
 from bson import ObjectId
 
-class patientAPI(Resource):
+class PatientAPI(Resource):
     def get(self, data):
         try:
             patient = patients.objects(status=data).to_json()
-            return Response(patient, mimetype="application/json", status=200)
+            return jsonify(patient), 200
         except Exception as e:
-            return Response("Error occurred while fetching patients", status=500, mimetype="application/json")
+            return {'message': "Error occurred while fetching patients"}, 500
 
     def post(self):
         try:
+            data = request.form
+
             # Get data from the form
-            name = request.form["name"]
-            age = request.form['age']
-            city = request.form['city']
-            email = request.form['email']
-            phone_no = request.form['phone_no']
-            password = request.form['password']
+            name = data["name"]
+            age = data['age']
+            city = data['city']
+            email = data['email']
+            phone_no = data['phone_no']
+            password = data['password']
 
             # Check if the email or phone number already exist in the database
-            if patients.objects(email=email).first():
-                return {'error': 'This Email is already registered'}, 400
-            elif doctors.objects(email=email).first():
+            if patients.objects(email=email).first() or doctors.objects(email=email).first():
                 return {'error': 'This Email is already registered'}, 400
 
-            if patients.objects(phone_no=phone_no).first():
-                return {'error': 'This Phone no. is already registered'}, 400
-            elif doctors.objects(phone_no=phone_no).first():
+            if patients.objects(phone_no=phone_no).first() or doctors.objects(phone_no=phone_no).first():
                 return {'error': 'This Phone no. is already registered'}, 400
 
             p = patients(name=name, age=age, city=city, email=email, phone_no=phone_no, password=password, status="pending").save()
@@ -57,18 +55,17 @@ class patientAPI(Resource):
         except Exception as e:
             return {"message": f"Error occurred: {str(e)}"}, 500
 
-
-class doctorAPI(Resource):
+class DoctorAPI(Resource):
     def get(self, data):
         try:
             doctor = doctors.objects(status=data).to_json()
-            return Response(doctor, mimetype="application/json", status=200)
+            return jsonify(doctor), 200
         except Exception as e:
-            return Response("Error occurred while fetching doctors", status=500, mimetype="application/json")
+            return {'message': "Error occurred while fetching doctors"}, 500
 
     def post(self):
         try:
-            data = request.get_json()  # Parse JSON data
+            data = request.get_json()
 
             # Extract data from the JSON object
             name = data['name']
@@ -82,14 +79,10 @@ class doctorAPI(Resource):
             password = data['password']
 
             # Check if the email or phone number already exist in the database
-            if doctors.objects(email=email).first():
-                return {'error': 'This Email is already registered'}, 400
-            elif patients.objects(email=email).first():
+            if doctors.objects(email=email).first() or patients.objects(email=email).first():
                 return {'error': 'This Email is already registered'}, 400
 
-            if doctors.objects(phone_no=phone_no).first():
-                return {'error': 'This Phone no. is already registered'}, 400
-            elif patients.objects(phone_no=phone_no).first():
+            if doctors.objects(phone_no=phone_no).first() or patients.objects(phone_no=phone_no).first():
                 return {'error': 'This Phone no. is already registered'}, 400
 
             d = doctors(
@@ -101,9 +94,9 @@ class doctorAPI(Resource):
 
             # Return a success message
             return {'message': 'Registration pending'}, 200
+
         except Exception as e:
             return {'message': str(e)}, 400
-
 
     def put(self, id, status):
         try:
@@ -121,8 +114,7 @@ class doctorAPI(Resource):
         except Exception as e:
             return {"message": f"Error occurred: {str(e)}"}, 500
 
-
-class searchDoctorsAPI(Resource):
+class SearchDoctorsAPI(Resource):
     def get(self):
         try:
             specialty = request.args.get("specialty")
@@ -134,8 +126,7 @@ class searchDoctorsAPI(Resource):
         except Exception as e:
             return {'message': f'Error occurred due to {str(e)}'}, 500
 
-
-class appointmentAPI(Resource):
+class AppointmentAPI(Resource):
     def get(self, data):
         try:
             # Retrieve patient_id from the session
@@ -152,7 +143,7 @@ class appointmentAPI(Resource):
             appointment_list = appointments.objects(patient_name=p_name, status=data).to_json()
 
             # Return the appointments as a JSON response
-            return Response(appointment_list, mimetype="application/json", status=200)
+            return jsonify(appointment_list), 200
 
         except Exception as e:
             # Return the exception message as a JSON response
@@ -182,8 +173,7 @@ class appointmentAPI(Resource):
         except Exception as e:
             return {"message": f"Error occurred due to {str(e)}"}, 500
 
-
-class doctorsAPI(Resource):
+class DoctorsAPI(Resource):
     def post(self):
         try:
             data = request.get_json()
@@ -220,8 +210,7 @@ class doctorsAPI(Resource):
         except Exception as e:
             return {"message": f"Error occurred: {str(e)}"}, 500
 
-
-class appointmentAPI2(Resource):
+class AppointmentAPI2(Resource):
     def get(self, data):
         try:
             # Retrieve patient_id from the session
@@ -238,7 +227,7 @@ class appointmentAPI2(Resource):
             appointment_list = appointments.objects(doctor_name=d_name, status=data).to_json()
 
             # Return the appointments as a JSON response
-            return Response(appointment_list, mimetype="application/json", status=200)
+            return jsonify(appointment_list), 200
 
         except Exception as e:
             # Return the exception message as a JSON response
@@ -255,7 +244,6 @@ class appointmentAPI2(Resource):
 
         except Exception as e:
             return {"message": f"Error occurred due to {str(e)}"}, 500
-
 
 def search_doctors(speciality, ratings, city):
     try:
@@ -278,4 +266,3 @@ def search_doctors(speciality, ratings, city):
             return {'message': "Please enter one of the fields to search"}
     except Exception as e:
         return {'message': f'Error occurred due to {str(e)}'}, 500
-

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -36,19 +36,23 @@ const DoctorRegistration = () => {
         },
         validationSchema: validationSchema,
         onSubmit: async (values) => {
+            console.log("onsubmit")
             try {
-                const response = await fetch('/doctorAPI', {
+                console.log('Fetching data from:', '/doctorAPI');
+                const response = await fetch('http://127.0.0.1:5000/doctorAPI', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(values),
-                });
+                });                
 
-                if (response.status === 200) {
-                    setRegistrationMessage('Registration successful.');
-                    // You can redirect the user to a login page or show a success message here.
+                if (response.ok) {
+                    // Handle success response here
+                    setRegistrationMessage('Registration pending.');
+                    // Redirect user or show success message
                 } else {
+                    // Handle error response here
                     const data = await response.json();
                     setRegistrationMessage(data.error || 'An error occurred during registration.');
                 }
@@ -57,7 +61,9 @@ const DoctorRegistration = () => {
                 setRegistrationMessage('An error occurred during registration.');
             }
         },
-    
+
+
+
     });
 
     return (
@@ -123,7 +129,7 @@ const DoctorRegistration = () => {
                                                 ) : null}
                                             </div>
                                         </div>
-                                       
+
                                         {/* Experience */}
                                         <div className="row">
                                             <div className="col-md-6 mb-2 pb-2">
@@ -159,7 +165,7 @@ const DoctorRegistration = () => {
                                                         value={formik.values.city}
                                                         required
                                                     >
-                                                        <option value=""  disabled>
+                                                        <option value="" disabled>
                                                             Select City
                                                         </option>
                                                         <option value="Karachi">Karachi</option>
