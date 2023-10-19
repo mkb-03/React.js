@@ -13,9 +13,9 @@ class PatientAPI(Resource):
 
     def post(self):
         try:
-            data = request.form
+            data = request.json  # Assume you are sending JSON data from your React front-end
 
-            # Get data from the form
+            # Get data from the JSON request
             name = data["name"]
             age = data['age']
             city = data['city']
