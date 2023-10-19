@@ -23,8 +23,8 @@ const Home = () => {
                                     </a>
 
                                     <div className="dropdown-menu custom-dropdown-menu me-2" aria-labelledby="dropdownMenuLink">
-                                        <Link className="dropdown-item" href="/patientRegistration">Register as Patient</Link>
-                                        <Link className="dropdown-item" href="/doctorRegistration">Register as Doctor</Link>
+                                        <Link className="dropdown-item" to="/patientRegistration">Register as Patient</Link>
+                                        <Link className="dropdown-item" to="/doctorRegistration">Register as Doctor</Link>
                                     </div>
                                 </span>
                             </div>
@@ -125,7 +125,7 @@ const Home = () => {
                                 />
                                 <div className="row d-flex justify-content-center">
                                     <div className="col-lg-8">
-                                        <h5 className="mb-3">John Doe</h5>
+                                        <h6 className="mb-3">John Doe</h6>
 
                                         <p className="text-muted">
                                             <i className="fa fa-quote-left pe-2"></i>
@@ -150,7 +150,7 @@ const Home = () => {
                                 />
                                 <div className="row d-flex justify-content-center">
                                     <div className="col-lg-8">
-                                        <h5 className="mb-3">Anna Deynah</h5>
+                                        <h6 className="mb-3">Anna Deynah</h6>
 
                                         <p className="text-muted">
                                             <i className="fa fa-quote-left pe-2"></i>
