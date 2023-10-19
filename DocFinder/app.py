@@ -45,7 +45,7 @@ def serve_react_app(path):
     
 
 
-@app.route('/patientLogin', methods=['POST'])
+@app.route('/api/patientLogin', methods=['POST'])
 def patientLogin():
     try:
         email = request.form['email']
@@ -55,20 +55,17 @@ def patientLogin():
             approval_check = patients.objects(email=email, password=password, status='approved').first()
             rejection_check = patients.objects(email=email, password=password, status='rejected').first()
             if approval_check:
-                # Save the patient's ID in the session
-                session["patient_id"] = login_check.id
-
-                # Redirect to the patientMainPage.html
-                return render_template("patientMainPage.html")
+                # You can return JSON response indicating success
+                return jsonify({'message': 'Login successful', 'patient_id': str(login_check.id)})
 
             elif rejection_check:
-                return {'message': 'Sorry to inform that, your registration request has been rejected.'}, 403
+                return jsonify({'message': 'Sorry to inform that, your registration request has been rejected.'}), 403
             else:
-                return {'message': 'Your Registration Request is PENDING at the moment.'}, 403
+                return jsonify({'message': 'Your Registration Request is PENDING at the moment.'}), 403
         else:
-            return {'message': 'No account found with these credentials.'}, 404
+            return jsonify({'message': 'No account found with these credentials.'}), 404
     except Exception as e:
-        return {'message': f'error occurred due to {str(e)}'}, 404
+        return jsonify({'message': f'Error occurred due to {str(e)}'}), 404
 
 
 @app.route('/deletePatient/<id>', methods=['DELETE'])

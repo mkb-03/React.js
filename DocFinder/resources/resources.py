@@ -1,5 +1,7 @@
 from flask import request, jsonify, session
-from flask_restful import Resource
+from flask_restful import Resource, reqparse
+from mongoengine.errors import DoesNotExist
+from flask_jwt_extended import jwt_required, get_jwt_identity
 from database.models import patients, doctors, appointments
 from bson import ObjectId
 
@@ -266,3 +268,57 @@ def search_doctors(speciality, ratings, city):
             return {'message': "Please enter one of the fields to search"}
     except Exception as e:
         return {'message': f'Error occurred due to {str(e)}'}, 500
+    
+
+
+
+class PatientLoginAPI(Resource):
+    def post(self):
+        try:
+            parser = reqparse.RequestParser()
+            parser.add_argument('email', type=str, required=True, help='Email is required')
+            parser.add_argument('password', type=str, required=True, help='Password is required')
+            args = parser.parse_args()
+
+            email = args['email']
+            password = args['password']
+            
+            login_check = patients.objects(email=email, password=password).first()
+            
+            if login_check:
+                approval_check = patients.objects(email=email, password=password, status='approved').first()
+                rejection_check = patients.objects(email=email, password=password, status='rejected').first()
+                
+                if approval_check:
+                    # You can return a JSON response indicating success
+                    return {'message': 'Login successful', 'patient_id': str(login_check.id)}
+
+                elif rejection_check:
+                    return {'message': 'Sorry to inform that, your registration request has been rejected.'}, 403
+
+                else:
+                    return {'message': 'Your Registration Request is PENDING at the moment.'}, 403
+
+            else:
+                return {'message': 'No account found with these credentials.'}, 404
+
+        except Exception as e:
+            return {'message': f'Error occurred due to {str(e)}'}, 500
+
+    @jwt_required()
+    def delete(self, id):
+        try:
+            current_user_id = get_jwt_identity()
+            patient = patients.objects(id=id).get()
+            
+            if str(patient.id) != current_user_id:
+                return {'message': 'You are not authorized to delete this account.'}, 401
+            
+            patient.delete()
+            return {'message': 'Account deleted successfully'}, 200
+
+        except DoesNotExist:
+            return {'message': 'Patient not found.'}, 404
+
+        except Exception as e:
+            return {'message': f'Error occurred: {str(e)}'}, 500
