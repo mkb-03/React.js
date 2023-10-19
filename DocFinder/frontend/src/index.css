@@ -204,6 +204,14 @@ th {
 
 }
 
+.invalid-feedback {
+  display: block; /* Ensures the error message is visible */
+  color: #dc3545; /* Red text color */
+  font-size: 14px; /* Adjust the font size as needed */
+  margin-top: 4px; /* Spacing between the input and error message */
+}
+
+
 @media (max-width:480px) and (min-width:300px) {
   h1 {
     font-size: 2rem;

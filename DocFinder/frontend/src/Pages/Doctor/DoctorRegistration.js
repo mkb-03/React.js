@@ -83,15 +83,14 @@ const DoctorRegistration = () => {
                                                         type="text"
                                                         id="name"
                                                         name="name"
+                                                        placeholder='Name'
                                                         className={`form-control form-control ${formik.errors.name && formik.touched.name ? 'is-invalid' : ''}`}
                                                         onChange={formik.handleChange}
                                                         onBlur={formik.handleBlur}
                                                         value={formik.values.name}
                                                         required
                                                     />
-                                                    <label className="form-label ms-1" htmlFor="name">
-                                                        Name
-                                                    </label>
+                                                    
                                                 </div>
                                                 {formik.touched.name && formik.errors.name ? (
                                                     <div className="invalid-feedback">{formik.errors.name}</div>
@@ -102,6 +101,7 @@ const DoctorRegistration = () => {
                                                     <select
                                                         id="speciality"
                                                         name="speciality"
+                                                        placeholder='Speciality'
                                                         className={`form-select ${formik.errors.speciality && formik.touched.speciality ? 'is-invalid' : ''}`}
                                                         onChange={formik.handleChange}
                                                         onBlur={formik.handleBlur}
@@ -120,9 +120,7 @@ const DoctorRegistration = () => {
                                                         <option value="Endocrinologists">Endocrinologists</option>
                                                         <option value="General Surgeon">General Surgeon</option>
                                                     </select>
-                                                    <label className="form-label ms-1" htmlFor="speciality">
-                                                        Specialty
-                                                    </label>
+                                                    
                                                 </div>
                                                 {formik.touched.speciality && formik.errors.speciality ? (
                                                     <div className="invalid-feedback">{formik.errors.speciality}</div>
@@ -132,34 +130,34 @@ const DoctorRegistration = () => {
 
                                         {/* Experience */}
                                         <div className="row">
-                                            <div className="col-md-6 mb-2 pb-2">
+                                            <div className="col-md-6 mb-2 pb-2 pt-2">
                                                 <div className="form-outline">
                                                     <input
                                                         type="text"
                                                         id="experience"
                                                         name="experience"
                                                         step="0.1"
+                                                        placeholder='Experience (in years)'
                                                         className={`form-control form-control ${formik.errors.experience && formik.touched.experience ? 'is-invalid' : ''}`}
                                                         onChange={formik.handleChange}
                                                         onBlur={formik.handleBlur}
                                                         value={formik.values.experience}
                                                         required
                                                     />
-                                                    <label className="form-label ms-1" htmlFor="experience">
-                                                        Experience (in years)
-                                                    </label>
+                                                
                                                 </div>
                                                 {formik.touched.experience && formik.errors.experience ? (
                                                     <div className="invalid-feedback">{formik.errors.experience}</div>
                                                 ) : null}
                                             </div>
                                             {/* City */}
-                                            <div className="col-md-6 mb-2 pb-2">
-                                                <div className="col-6">
+                                            <div className="col-md-6 mb-2 pb-2 pt-2">
+                                                <div className="form-outline">
                                                     <select
-                                                        className={`select form-control ${formik.errors.city && formik.touched.city ? 'is-invalid' : ''}`}
                                                         id="city"
                                                         name="city"
+                                                        placeholder='City'
+                                                        className={`form-select ${formik.errors.city && formik.touched.city ? 'is-invalid' : ''}`}
                                                         onChange={formik.handleChange}
                                                         onBlur={formik.handleBlur}
                                                         value={formik.values.city}
@@ -179,7 +177,7 @@ const DoctorRegistration = () => {
                                                         <option value="Quetta">Quetta</option>
                                                         <option value="Gujranwala">Gujranwala</option>
                                                     </select>
-                                                    <label className="form-label select-label ms-2">City</label>
+                                                    
                                                 </div>
                                                 {formik.touched.city && formik.errors.city ? (
                                                     <div className="invalid-feedback">{formik.errors.city}</div>
@@ -194,15 +192,14 @@ const DoctorRegistration = () => {
                                                         type="email"
                                                         id="email"
                                                         name="email"
+                                                        placeholder='Email'
                                                         className={`form-control form-control ${formik.errors.email && formik.touched.email ? 'is-invalid' : ''}`}
                                                         onChange={formik.handleChange}
                                                         onBlur={formik.handleBlur}
                                                         value={formik.values.email}
                                                         required
                                                     />
-                                                    <label className="form-label ms-1" htmlFor="email">
-                                                        Email
-                                                    </label>
+                                                    
                                                 </div>
                                                 {formik.touched.email && formik.errors.email ? (
                                                     <div className="invalid-feedback">{formik.errors.email}</div>
@@ -210,22 +207,23 @@ const DoctorRegistration = () => {
                                             </div>
                                             {/* Gender */}
                                             <div className="col-md-6 mb-2 pb-2">
-                                                <div className="col-6">
+                                                <div className="form-outline">
                                                     <select
-                                                        className={`select form-control ${formik.errors.gender && formik.touched.gender ? 'is-invalid' : ''}`}
                                                         id="gender"
                                                         name="gender"
+                                                        placeholder='Gender'
+                                                        className={`form-select ${formik.errors.gender && formik.touched.gender ? 'is-invalid' : ''}`}
                                                         onChange={formik.handleChange}
                                                         onBlur={formik.handleBlur}
                                                         value={formik.values.gender}
                                                         required
                                                     >
-                                                        <option value="1">Select Gender</option>
+                                                        <option value="" disabled>Select Gender</option>
                                                         <option value="Male">Male</option>
                                                         <option value="Female">Female</option>
                                                         <option value="Other">Other</option>
                                                     </select>
-                                                    <label className="form-label select-label ms-2">Gender</label>
+                                                    
                                                 </div>
                                                 {formik.touched.gender && formik.errors.gender ? (
                                                     <div className="invalid-feedback">{formik.errors.gender}</div>
@@ -234,10 +232,11 @@ const DoctorRegistration = () => {
                                         </div>
                                         {/* Phone Number */}
                                         <div className="row">
-                                            <div className="col-md-6 mb-2 d-flex align-items-center">
-                                                <div className="form-outline datepicker w-100">
+                                            <div className="col-md-6 mb-2">
+                                                <div className="form-outline ">
                                                     <input
                                                         type="text"
+                                                        placeholder='Phone Number'
                                                         className={`form-control form-control ${formik.errors.phone_no && formik.touched.phone_no ? 'is-invalid' : ''}`}
                                                         name="phone_no"
                                                         id="phone_no"
@@ -246,9 +245,7 @@ const DoctorRegistration = () => {
                                                         value={formik.values.phone_no}
                                                         required
                                                     />
-                                                    <label htmlFor="phone_no" className="form-label ms-1">
-                                                        Phone Number
-                                                    </label>
+                                                    
                                                 </div>
                                                 {formik.touched.phone_no && formik.errors.phone_no ? (
                                                     <div className="invalid-feedback">{formik.errors.phone_no}</div>
@@ -261,15 +258,14 @@ const DoctorRegistration = () => {
                                                         type="password"
                                                         id="password"
                                                         name="password"
+                                                        placeholder='Password'
                                                         className={`form-control form-control ${formik.errors.password && formik.touched.password ? 'is-invalid' : ''}`}
                                                         onChange={formik.handleChange}
                                                         onBlur={formik.handleBlur}
                                                         value={formik.values.password}
                                                         required
                                                     />
-                                                    <label className="form-label ms-1" htmlFor="password">
-                                                        Password
-                                                    </label>
+                                                    
                                                 </div>
                                                 {formik.touched.password && formik.errors.password ? (
                                                     <div className="invalid-feedback">{formik.errors.password}</div>
@@ -278,21 +274,20 @@ const DoctorRegistration = () => {
                                         </div>
                                         {/* Hospital Name */}
                                         <div className="row">
-                                            <div className="col-md-6 mb-2 d-flex align-items-center">
-                                                <div className="form-outline datepicker w-100">
+                                            <div className="col-md-6 pb-2 pt-2 ">
+                                                <div className="form-outline">
                                                     <input
                                                         type="text"
-                                                        className={`form-control form-control ${formik.errors.hospital_name && formik.touched.hospital_name ? 'is-invalid' : ''}`}
                                                         name="hospital_name"
                                                         id="hospital_name"
+                                                        className={`form-control form-control ${formik.errors.hospital_name && formik.touched.hospital_name ? 'is-invalid' : ''}`}
+                                                        placeholder='Hospital Name'
                                                         onChange={formik.handleChange}
                                                         onBlur={formik.handleBlur}
                                                         value={formik.values.hospital_name}
                                                         required
                                                     />
-                                                    <label htmlFor="hospital_name" className="form-label ms-1">
-                                                        Hospital Name
-                                                    </label>
+                                                
                                                 </div>
                                                 {formik.touched.hospital_name && formik.errors.hospital_name ? (
                                                     <div className="invalid-feedback">{formik.errors.hospital_name}</div>
@@ -310,7 +305,7 @@ const DoctorRegistration = () => {
                                         Already have an account ?{' '}
                                         <a href="/doctorlogin">
                                             {' '}
-                                            <button className="btn btn-secondary yellow-button-color">LogIn here</button>{' '}
+                                            <button className="btn btn-secondary yellow-button-color">Login</button>{' '}
                                         </a>
                                     </p>
                                 </div>
