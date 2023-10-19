@@ -270,8 +270,6 @@ def search_doctors(speciality, ratings, city):
         return {'message': f'Error occurred due to {str(e)}'}, 500
     
 
-
-
 class PatientLoginAPI(Resource):
     def post(self):
         try:

@@ -45,37 +45,37 @@ def serve_react_app(path):
     
 
 
-@app.route('/api/patientLogin', methods=['POST'])
-def patientLogin():
-    try:
-        email = request.form['email']
-        password = request.form['password']
-        login_check = patients.objects(email=email, password=password).first()
-        if login_check:
-            approval_check = patients.objects(email=email, password=password, status='approved').first()
-            rejection_check = patients.objects(email=email, password=password, status='rejected').first()
-            if approval_check:
-                # You can return JSON response indicating success
-                return jsonify({'message': 'Login successful', 'patient_id': str(login_check.id)})
+# @app.route('/api/patientLogin', methods=['POST'])
+# def patientLogin():
+#     try:
+#         email = request.form['email']
+#         password = request.form['password']
+#         login_check = patients.objects(email=email, password=password).first()
+#         if login_check:
+#             approval_check = patients.objects(email=email, password=password, status='approved').first()
+#             rejection_check = patients.objects(email=email, password=password, status='rejected').first()
+#             if approval_check:
+#                 # You can return JSON response indicating success
+#                 return jsonify({'message': 'Login successful', 'patient_id': str(login_check.id)})
 
-            elif rejection_check:
-                return jsonify({'message': 'Sorry to inform that, your registration request has been rejected.'}), 403
-            else:
-                return jsonify({'message': 'Your Registration Request is PENDING at the moment.'}), 403
-        else:
-            return jsonify({'message': 'No account found with these credentials.'}), 404
-    except Exception as e:
-        return jsonify({'message': f'Error occurred due to {str(e)}'}), 404
+#             elif rejection_check:
+#                 return jsonify({'message': 'Sorry to inform that, your registration request has been rejected.'}), 403
+#             else:
+#                 return jsonify({'message': 'Your Registration Request is PENDING at the moment.'}), 403
+#         else:
+#             return jsonify({'message': 'No account found with these credentials.'}), 404
+#     except Exception as e:
+#         return jsonify({'message': f'Error occurred due to {str(e)}'}), 404
 
 
-@app.route('/deletePatient/<id>', methods=['DELETE'])
-def deletePatient(id):
-    try:
-        # Check if the patient record exists
-        patients.objects(id=id).delete()
-        return {"message": "Account deleted successfully"}, 200
-    except Exception as e:
-        return {"message": f"Error occurred: {str(e)}"}, 500
+# @app.route('/deletePatient/<id>', methods=['DELETE'])
+# def deletePatient(id):
+#     try:
+#         # Check if the patient record exists
+#         patients.objects(id=id).delete()
+#         return {"message": "Account deleted successfully"}, 200
+#     except Exception as e:
+#         return {"message": f"Error occurred: {str(e)}"}, 500
 
 
 
