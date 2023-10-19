@@ -6,6 +6,7 @@ import Footer from './Components/Footer';
 import DoctorRegistration from './Pages/Doctor/DoctorRegistration';
 import PatientRegistration from './Pages/Patient/PatientRegistration';
 import PatientLogin from './Pages/Patient/PatientLogin';
+import DoctorLogin from './Pages/Doctor/DoctorLogin';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/doctorRegistration" element={<DoctorRegistration />} />
         <Route path="/patientRegistration" element={<PatientRegistration />} />
         <Route path="/patientLogin" element={<PatientLogin />} />
+        <Route path="/doctorLogin" element={<DoctorLogin />} />
       </Routes>
       <Footer/>
     </Router>

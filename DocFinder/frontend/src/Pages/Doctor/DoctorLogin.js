@@ -1,9 +1,8 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
 
-const PatientLogin = () => {
+const DoctorLogin = () => {
     const validationSchema = Yup.object().shape({
         email: Yup.string().email('Invalid email format').required('Email is required'),
         password: Yup.string().required('Password is required'),
@@ -17,7 +16,7 @@ const PatientLogin = () => {
         validationSchema: validationSchema,
         onSubmit: async (values) => {
             try {
-                const response = await fetch('http://127.0.0.1:5000/patientLogin', {
+                const response = await fetch('http://127.0.0.1:5000/doctorLogin', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -26,17 +25,21 @@ const PatientLogin = () => {
                 });
 
                 if (response.ok) {
-                    // Redirect to the patientMainPage
-                    // You can use react-router or another method for navigation
-                    window.location.href = '/patientMainPage';
-                    // <Link to="/patientMainPage" />
+                    const responseData = await response.json();
+                    if (responseData && responseData.redirect) {
+                        // Redirect to the URL provided in the response
+                        window.location.replace(responseData.redirect);
+                    } else {
+                        // Show the error message in a popup
+                        alert(responseData.message);
+                    }
                 } else {
-                    const errorMessage = await response.text();
-                    alert(errorMessage);
+                    // Show the error message in a popup
+                    alert('An error occurred.');
                 }
             } catch (error) {
                 console.error('Error occurred:', error);
-                alert('Error: Unexpected response from the server.');
+                alert('An error occurred: ' + error.message);
             }
         },
     });
@@ -48,7 +51,7 @@ const PatientLogin = () => {
                     <div className="col-12 col-lg-9 col-xl-7">
                         <div className="card shadow-2-strong card-registration" style={{ borderRadius: '15px' }}>
                             <div className="card-body p-4 p-md-5">
-                                <h3 className="mb-2 pb-2 pb-md-0 mb-md-5">Patient Login</h3>
+                                <h3 className="mb-2 pb-2 pb-md-0 mb-md-5">Doctor Login</h3>
                                 <form onSubmit={formik.handleSubmit}>
                                     <div className="row">
                                         <div className="col-md-6 mb-2 pb-2">
@@ -64,7 +67,7 @@ const PatientLogin = () => {
                                                     value={formik.values.email}
                                                     required
                                                 />
-                                            
+                                                
                                                 {formik.touched.email && formik.errors.email && (
                                                     <div className="invalid-feedback">{formik.errors.email}</div>
                                                 )}
@@ -85,7 +88,7 @@ const PatientLogin = () => {
                                                     value={formik.values.password}
                                                     required
                                                 />
-                                               
+                                             
                                                 {formik.touched.password && formik.errors.password && (
                                                     <div className="invalid-feedback">{formik.errors.password}</div>
                                                 )}
@@ -113,4 +116,4 @@ const PatientLogin = () => {
     );
 };
 
-export default PatientLogin;
+export default DoctorLogin;
