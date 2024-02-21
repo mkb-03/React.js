@@ -1,0 +1,1 @@
+This repository contains a collection of projects that I developed from scratch to enhance my skills in React.
